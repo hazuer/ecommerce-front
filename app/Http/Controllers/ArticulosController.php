@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Articulo;
+use Illuminate\Support\Facades\Auth;
 
 class ArticulosController extends Controller
 {
@@ -13,7 +15,8 @@ class ArticulosController extends Controller
      */
     public function index()
     {
-        //
+        $articulos = Articulo::all();
+        return view('articulos.index', compact('articulos'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ArticulosController extends Controller
      */
     public function create()
     {
-        //
+        return view('articulos.create');
     }
 
     /**
@@ -34,7 +37,12 @@ class ArticulosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $articulo = new Articulo;
+        $articulo->articulo = $request->input('articulo');
+        $articulo->propietario = Auth::user()->name;
+        $articulo->foto = "";
+        $articulo->save();
+        return redirect('articulo');
     }
 
     /**
