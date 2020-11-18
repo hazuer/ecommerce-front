@@ -87,6 +87,7 @@ class ArticulosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Articulo::findOrFail($id)->delete();
+        return redirect('articulo');
     }
 }

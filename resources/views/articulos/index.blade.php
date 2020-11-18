@@ -21,6 +21,8 @@
                                 <th>ID</th>
                                 <th>Propiertario</th>
                                 <th>Articulo</th>
+                                <th>Consular</th>
+                                <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -31,6 +33,14 @@
                                 <td> {{ $articulo->propietario }}</td>
                                 <td> {{ $articulo->articulo }}</td>
                                 <td></td>
+                                <td></td>
+                                <td>
+                                    <form method="POST" action="{{ url("articulo/{$articulo->id}") }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
