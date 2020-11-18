@@ -53,7 +53,8 @@ class ArticulosController extends Controller
      */
     public function show($id)
     {
-        //
+        $articulo = Articulo::findOrFail($id);
+        return view('articulos.show', compact('articulo'));
     }
 
     /**

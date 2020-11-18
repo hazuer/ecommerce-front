@@ -32,13 +32,13 @@
                                 <td> {{ $articulo->id }}</td>
                                 <td> {{ $articulo->propietario }}</td>
                                 <td> {{ $articulo->articulo }}</td>
-                                <td></td>
+                                <td><a href="{{ url("articulo/{$articulo->id}") }}" class="btn btn-default">Consultar</a></td>
                                 <td></td>
                                 <td>
                                     <form method="POST" action="{{ url("articulo/{$articulo->id}") }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
