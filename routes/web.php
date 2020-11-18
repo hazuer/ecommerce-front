@@ -17,9 +17,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('lo
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 Route::resource('/articulo', App\Http\Controllers\ArticulosController::class);
 
 Route::resource('/comentario', App\Http\Controllers\ComentariosController::class);

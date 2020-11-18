@@ -14,7 +14,6 @@ class ArticulosController extends Controller
     public function index()
     {
         //
-
     }
 
     /**
